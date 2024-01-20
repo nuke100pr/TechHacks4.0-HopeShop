@@ -51,7 +51,7 @@ const SellersMapView = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>bright kids around you!</Text>
+      <Text style={styles.heading}> around you!</Text>
 
       <MapView
         style={styles.map}

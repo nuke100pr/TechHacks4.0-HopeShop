@@ -31,6 +31,15 @@ export default function TabLayout() {
           ),
         }}
       />
+        <Tabs.Screen
+        name="order_list"
+        options={{
+          title: "Your Orders",
+          tabBarIcon: ({ color }) => (
+            <Fontisto name="shopping-bag" size={24} color={color} />
+          ),
+        }}
+      />
     </Tabs>
   );
 }

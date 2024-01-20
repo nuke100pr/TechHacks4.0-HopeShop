@@ -3,7 +3,6 @@ import {
   Text,
   View,
   ActivityIndicator,
-  ToastAndroid,
   Pressable,
   ScrollView,
 } from "react-native";
@@ -46,7 +45,7 @@ const Register = () => {
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const addUserToFirestore = async (userID: string) => {
+  const addUserToFirestore = async (userID) => {
     try {
       await setDoc(doc(db, "users", userID), {
         id: userID,
@@ -76,14 +75,20 @@ const Register = () => {
         setIsLoading(false);
 
         router.back();
-
-        ToastAndroid.show("Registered successfully!", ToastAndroid.SHORT);
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        console.error(
+          "Registration failed. Error code:",
+          errorCode,
+          "Error message:",
+          errorMessage
+        );
+        setIsLoading(false);
       });
   };
+
 
   return (
     <>

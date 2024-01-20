@@ -41,7 +41,7 @@ const SellerInfo = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>This bright kid sells this!</Text>
+      <Text style={styles.heading}>BUY HERE!</Text>
 
       <FlatList
         data={services}

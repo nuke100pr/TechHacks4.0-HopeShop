@@ -3,7 +3,6 @@ import {
   SafeAreaView,
   FlatList,
   RefreshControl,
-  ToastAndroid,
 } from "react-native";
 import { useEffect, useState } from "react";
 import SellerProfile from "../components/SellerProfile";
@@ -46,12 +45,8 @@ const SellerScreen = () => {
     try {
       await deleteDoc(doc(db, "services", id));
 
-      ToastAndroid.show("Deleted!", ToastAndroid.SHORT);
-
       getServices();
-    } catch (error) {
-      ToastAndroid.show("Try Again!", ToastAndroid.SHORT);
-    }
+    } catch (error) {}
   };
 
   useEffect(() => {

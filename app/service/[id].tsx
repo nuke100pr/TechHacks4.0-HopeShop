@@ -13,6 +13,8 @@ import { ScrollView } from "react-native-gesture-handler";
 import CustomButton from "../../components/CustomButton";
 import DisplayLocation from "../../components/DisplayLocation";
 import PlaceOrderModal from "../../components/PlaceOrderModal";
+import React from 'react';
+import { LineChart } from 'react-native-chart-kit';
 
 const BuyingMode = (props) => {
   const { text } = props;
@@ -66,6 +68,15 @@ const ServiceScreen = () => {
 
   const [isLoading, setIsLoading] = useState(false);
 
+
+  const data = {
+    labels: ['January', 'February', 'March', 'April', 'May', 'June','July','August','September','October','November','December'],
+    datasets: [
+      {
+        data: [500, 450, 300, 550, 600, 500,505,520,540,530,475,455],
+      },
+    ],};
+
   const getService = async () => {
     setIsLoading(true);
 
@@ -85,6 +96,7 @@ const ServiceScreen = () => {
     if (service?.userID) {
       const docRef = doc(db, "users", service?.userID);
       const docSnap = await getDoc(docRef);
+
 
       if (docSnap.exists()) {
         setSeller(docSnap.data());
@@ -122,15 +134,21 @@ const ServiceScreen = () => {
       showsVerticalScrollIndicator={false}
     >
       <Text style={styles.title}>{service?.title}</Text>
+      
+
+
+
+
+      
 
       <Image
         source={{
-          uri: service?.image,
+          uri: "https://plus.unsplash.com/premium_photo-1661757934821-d0e2049f6282?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max",
         }}
         style={styles.image}
       />
 
-      <Text style={styles.price}>${service?.price}</Text>
+      <Text style={styles.price}>₹{service?.price}</Text>
 
       <Text style={styles.description}>{service?.description}</Text>
 
@@ -147,7 +165,7 @@ const ServiceScreen = () => {
         <Text style={{ fontFamily: "Neo", color: "#83A2FF", fontSize: 17 }}>
           {service?.deliveryTime}
         </Text>{" "}
-        Days
+        Hours
       </Text>
 
       {service?.buyingMode && <BuyingMode text={service?.buyingMode} />}
@@ -161,8 +179,7 @@ const ServiceScreen = () => {
           marginVertical: 10,
         }}
       />
-
-      <Text style={styles.heading}>buy from this amazing kid!</Text>
+      <Text style={styles.heading}>Buy now 50% off on all orders.</Text>
 
       <Text style={styles.username}>{seller?.fullName}</Text>
 
@@ -171,6 +188,37 @@ const ServiceScreen = () => {
       <Text style={styles.text}>{seller?.bio}</Text>
 
       {seller?.location && <DisplayLocation location={seller?.location} />}
+
+      <Text style={styles.heading}>Price history</Text>
+
+      <ScrollView horizontal>
+      <View style={styles.container3}>
+      <LineChart
+        data={data}
+        width={1000}
+        height={200}
+        yAxisLabel="K"
+        chartConfig={{
+          backgroundGradientFrom: '#fff',
+          backgroundGradientTo: '#fff',
+          decimalPlaces: 2,
+          color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+          labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+          style: {
+            borderRadius: 16,
+          },
+          propsForDots: {
+            r: '6',
+            strokeWidth: '2',
+            stroke: '#ffa726',
+          },
+        }}
+        bezier
+      />
+    </View>
+      </ScrollView>
+      
+   
 
       <CustomButton
         text="call"

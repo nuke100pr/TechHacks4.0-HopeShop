@@ -5,7 +5,6 @@ import {
   View,
   ScrollView,
   ActivityIndicator,
-  ToastAndroid,
 } from "react-native";
 import { useState } from "react";
 import CustomInput from "./CustomInput";
@@ -41,7 +40,6 @@ const PlaceOrderModal = (props) => {
         deliveryTime,
       });
 
-      ToastAndroid.show("Order placed successfully!", ToastAndroid.LONG);
       onClose();
     } catch (e) {
       alert("try Again!");

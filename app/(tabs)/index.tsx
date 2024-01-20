@@ -54,7 +54,7 @@ export default function BuyerScreen() {
   return (
     <>
       <View style={styles.container}>
-        <Text style={styles.heading}>around you!</Text>
+        <Text style={styles.heading}>what's around you!</Text>
 
         {locationIsSet && (
           <FlatList

@@ -17,6 +17,20 @@ const MapViewFAB = () => {
   );
 };
 
+const OrderViewFAB = () => {
+  return (
+    <Pressable
+      style={styles.container}
+      onPress={() => router.push("/sellers-map-view")}
+    >
+      <View style={styles.btn}>
+        <Fontisto name="map" size={25} color="#000" />
+      </View>
+      <View style={styles.shadow} />
+    </Pressable>
+  );
+};
+
 export default MapViewFAB;
 
 const styles = StyleSheet.create({

@@ -1,4 +1,4 @@
-import { StyleSheet, View, Pressable, ToastAndroid } from "react-native";
+import { StyleSheet, View, Pressable } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import * as Location from "expo-location";
 
@@ -39,8 +39,6 @@ const CurrentLocationFAB = (props) => {
       );
 
       changeMapRegion(currentRegion);
-
-      ToastAndroid.show("Current Location is set!", ToastAndroid.SHORT);
     } catch (error) {
       alert("Error getting location");
     }
