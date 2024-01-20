@@ -33,14 +33,4 @@ Hope Shop is a mobile application developed during TechHacks 4.0, connecting loc
 
 We welcome contributions! Please follow our [contribution guidelines](CONTRIBUTING.md) to get started.
 
-## License
 
-This project is licensed under the [MIT License](LICENSE).
-
-## Connect with Us
-
-- Website: [www.hopeshop.com](https://www.hopeshop.com)
-- Twitter: [@HopeShopOfficial](https://twitter.com/HopeShopOfficial)
-- Discord: [HopeShop Discord](https://discord.gg/hopeshop)
-
-Feel free to explore, contribute, and make local services more accessible with Hope Shop!
