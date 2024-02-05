@@ -1,7 +1,7 @@
 # Hope Shop
 
 
-## Overview
+## Introduction
 
 Hope Shop is a mobile application developed during TechHacks 4.0, connecting local service providers and customers. Whether you need Washerman services, Grocery delivery, Technical Assistance, or House Help, Hope Shop has you covered.
 
